@@ -7,7 +7,7 @@
 <ion-content>
   
   <ion-item>
-    <ion-label position="fixed">Número 1::</ion-label>
+    <ion-label position="fixed">Número 1:</ion-label>
     <ion-input [(ngModel)]="num1"></ion-input>
   </ion-item>
   
@@ -20,4 +20,10 @@
     <ion-label position="fixed">Número 2:</ion-label>
     <ion-input [(ngModel)]="num2"></ion-input>
   </ion-item>
+  <ion-button color="success" (click)="calcular()">
+    Calcular
+  </ion-button>
+  <ion-button routerLink="/home">
+    Volver
+  </ion-button>
 </ion-content>

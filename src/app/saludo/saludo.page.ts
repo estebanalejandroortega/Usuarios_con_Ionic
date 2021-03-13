@@ -1,27 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { NavController, AlertController } from '@ionic/angular'
 @Component({
   selector: 'app-saludo',
   templateUrl: './saludo.page.html',
   styleUrls: ['./saludo.page.scss'],
 })
-export class SaludoPage implements OnInit {
+export class SaludoPage{
 
-
-  saludar()
-  {
-    console.log(this.id)
-    if(this.id != null)
-    {
-      this.usuarios[this.id]["nombre"] = this.nombre
-      this.usuarios[this.id]["apellido"] = this.apellido
-      this.usuarios[this.id]["celular"] = this.celular
-      this.usuarios[this.id]["email"] = this.email
+  nombre = "";
+  constructor(public alertController: AlertController) {}
+  async alertaNombre() {
+    if(this.nombre == ""){
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Saludo',
+        message: 'Por favor ingrese un nombre para saludar ',
+        buttons: ['Ok']
+      });
+      
+      await alert.present();
     }
+    else
+    {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Saludo',
+      message: 'Bienvenido '+this.nombre,
+      buttons: ['Ok']
+    });
+    await alert.present();
+    this.nombre = "";
   }
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+}
 }

@@ -3,6 +3,7 @@
     <ion-title>Saludo</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
   
   <ion-item>
@@ -11,5 +12,8 @@
   </ion-item>
   <ion-button color="success" (click)="saludar()">
     Saludar
+  </ion-button>
+  <ion-button routerLink="/home">
+    Volver
   </ion-button>
 </ion-content>
