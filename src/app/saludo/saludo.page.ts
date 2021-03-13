@@ -9,7 +9,7 @@ export class SaludoPage{
 
   nombre = "";
   constructor(public alertController: AlertController) {}
-  async alertaNombre() {
+  async saludar() {
     if(this.nombre == ""){
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
