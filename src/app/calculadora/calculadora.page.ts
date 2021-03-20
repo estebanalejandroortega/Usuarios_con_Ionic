@@ -8,7 +8,7 @@ import { isNumber } from 'util';
 })
 export class CalculadoraPage {
   value = '0';
-  oldValue = '0';
+  Values = '0';
 
   lastOperator = 'x';
   readyForNewInput = true;
@@ -16,7 +16,7 @@ export class CalculadoraPage {
     [7, 8, 9, 'x'],
     [4, 5, 6, '-'],
     [1, 2, 3, '+'],
-    [0, 'c', '/', '=']
+    [0, 'Ac', '/', '=']
   ];
 
   onButtonPress(symbol) {
@@ -36,18 +36,18 @@ export class CalculadoraPage {
     }
     else if (symbol === '=') {
       if (this.lastOperator === 'x')
-        this.value = '' + (parseInt(this.oldValue) * parseInt(this.value));
+        this.value = '' + (parseInt(this.Values) * parseInt(this.value));
       else if (this.lastOperator === '-')
-        this.value = '' + (parseInt(this.oldValue) - parseInt(this.value));
+        this.value = '' + (parseInt(this.Values) - parseInt(this.value));
       else if (this.lastOperator === '+')
-        this.value = '' + (parseInt(this.oldValue) + parseInt(this.value));
+        this.value = '' + (parseInt(this.Values) + parseInt(this.value));
       else if (this.lastOperator === '/')
-        this.value = '' + (parseInt(this.oldValue) / parseInt(this.value));
+        this.value = '' + (parseInt(this.Values) / parseInt(this.value));
       this.readyForNewInput = true;
     }
     else { 
       this.readyForNewInput = true;
-      this.oldValue = this.value;
+      this.Values = this.value;
       this.lastOperator = symbol;
     }
   }
